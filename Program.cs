@@ -109,18 +109,19 @@ namespace ThermoRawInfo
                     rawFile.SelectInstrument(Device.MS, instrumentNum);
                     InstrumentData data = rawFile.GetInstrumentData();
                     Console.WriteLine($"Mass Spec Instrument #{instrumentNum}:");
-                    Console.WriteLine("   Instrument model: " + data.Model);
-                    Console.WriteLine("   Instrument name: " + data.Name);
-                    Console.WriteLine("   Serial number: " + data.SerialNumber);
-                    Console.WriteLine("   Software version: " + data.SoftwareVersion);
-                    Console.WriteLine("   Firmware version: " + data.HardwareVersion);
-                    Console.WriteLine("   Units: " + data.Units);
-                    Console.WriteLine("   Mass resolution: {0:F3} ", rawFile.RunHeaderEx.MassResolution);
-                    Console.WriteLine("   Number of scans: {0}", rawFile.RunHeaderEx.SpectraCount);
-                    Console.WriteLine("   Scan range: {0} - {1}", rawFile.RunHeaderEx.FirstSpectrum, rawFile.RunHeaderEx.LastSpectrum);
-                    Console.WriteLine("   Time range: {0:F2} - {1:F2}", rawFile.RunHeaderEx.StartTime, rawFile.RunHeaderEx.EndTime);
-                    Console.WriteLine("   Mass range: {0:F4} - {1:F4}", rawFile.RunHeaderEx.LowMass, rawFile.RunHeaderEx.HighMass);
+                    Console.WriteLine($"   Instrument model: {data.Model}");
+                    Console.WriteLine($"   Instrument name: {data.Name}");
+                    Console.WriteLine($"   Serial number: {data.SerialNumber}");
+                    Console.WriteLine($"   Software version: {data.SoftwareVersion}");
+                    Console.WriteLine($"   Firmware version: {data.HardwareVersion}");
+                    Console.WriteLine($"   Units: {data.Units}");
+                    Console.WriteLine($"   Mass resolution: {rawFile.RunHeaderEx.MassResolution:F3} ");
+                    Console.WriteLine($"   Number of scans: {rawFile.RunHeaderEx.SpectraCount}");
+                    Console.WriteLine($"   Scan range: {rawFile.RunHeaderEx.FirstSpectrum} - {rawFile.RunHeaderEx.LastSpectrum}");
+                    Console.WriteLine($"   Time range: {rawFile.RunHeaderEx.StartTime:F2} - {rawFile.RunHeaderEx.EndTime:F2}");
+                    Console.WriteLine($"   Mass range: {rawFile.RunHeaderEx.LowMass:F4} - {rawFile.RunHeaderEx.HighMass:F4}");
                     Console.WriteLine();
+                    
                     
                     // Read the first instrument method (most likely for the MS portion of the instrument).
                     // NOTE: This method reads the instrument methods from the RAW file but the underlying code
@@ -132,7 +133,7 @@ namespace ThermoRawInfo
 
                         foreach (var device in deviceNames)
                         {
-                            Console.WriteLine("Instrument method: " + device);
+                            Console.WriteLine($"Instrument method: {device}");
                         }
 
                         Console.WriteLine();
